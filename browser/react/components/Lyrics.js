@@ -7,7 +7,7 @@ export default class Lyrics extends Component {
 
   constructor(props) {
     super(props);
-    console.log('lyrics props', props)
+    // console.log('lyrics props', props)
     this.state = {
       artistQuery: '',
       songQuery: ''

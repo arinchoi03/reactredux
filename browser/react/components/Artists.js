@@ -4,7 +4,7 @@ import {Link} from 'react-router';
 export default function Artists (props) {
 
   const artists = props.artists;
-
+  console.log('list:', props)
   return (
     <div>
       <h3>Artists</h3>
