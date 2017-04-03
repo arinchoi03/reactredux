@@ -1,27 +1,60 @@
-import React from 'react';
+import React, {Component} from 'react';
+import {searchLyrics} from '../action-creators/lyrics';
+import store from '../store';
 
-export default function Lyrics (props) {
 
-  const text = props.lyrics.text;
-  const artistQuery = props.artistQuery;
-  const songQuery = props.songQuery;
-  const handleSubmit = props.handleSubmit;
+export default class Lyrics extends Component {
 
-  const artistChange = e => props.setArtist(e.target.value);
-  const songChange = e => props.setSong(e.target.value);
+  constructor(props) {
+    super(props);
+    console.log('lyrics props', props)
+    this.state = {
+      artistQuery: '',
+      songQuery: ''
+    };
 
-  return (
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleArtistInput = this.handleArtistInput.bind(this);
+    this.handleSongInput = this.handleSongInput.bind(this);
+
+  }
+
+  // componentDidMount() {
+  //   this.unsubscribe = store.subscribe(() => {
+  //     this.setState(store.getState());
+  //   });
+  // }
+
+  handleArtistInput(event) {
+    this.setState({ artistQuery: event.target.value });
+  }
+
+  handleSongInput(event) {
+
+    this.setState({ songQuery: event.target.value });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.handleSubmit(this.state)
+    // if (this.state.artistQuery && this.state.songQuery) {
+    //   store.dispatch(searchLyrics(this.state.artistQuery, this.state.songQuery));
+    // }
+  }
+
+  render() {
+    return (
     <div style={{marginTop: '20px'}}>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <div className="form-group row">
           <div className="col-md-6 col-xs-12">
             <label className="col-xs-2 control-label">Artist</label>
             <input
               className="form-control"
               type="text"
-              value={artistQuery}
+              value={this.state.artistQuery}
               placeholder="Enter an artist name"
-              onChange={artistChange}
+              onChange={this.handleArtistInput}
             />
           </div>
           <div className="col-md-6 col-xs-12">
@@ -29,17 +62,20 @@ export default function Lyrics (props) {
             <input
               className="form-control"
               type="text"
-              value={songQuery}
+              value={this.state.songQuery}
               placeholder="Enter a song name"
-              onChange={songChange}
+              onChange={this.handleSongInput}
             />
           </div>
         </div>
-        <pre>{text || 'Search above!'}</pre>
+        <pre>{this.props.lyrics || 'Search above!'}</pre>
         <button type="submit" className="btn btn-success">
           Search for Lyrics
         </button>
       </form>
     </div>
   );
+  }
+
+
 }

@@ -55,7 +55,6 @@ import { connect } from 'react-redux';
 // }
 
 const mapStateToProps = function(state, ownProps) {
-  console.log('player container state', state)
   return {
     currentSong: state.player.currentSong,
     isPlaying: state.player.isPlaying,
