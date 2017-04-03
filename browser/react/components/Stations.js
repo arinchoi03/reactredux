@@ -8,9 +8,10 @@ export default function Stations (props){
       //   { name: 'Death Metal' },
       //   { name: 'Classical' }
       // ];
+
   //props.station - actually contains all the songs that are sorted by genre
-  // stations below is just array of strings that represent genre
   const stations = props.stations
+
 
   return (<div>
     <h3>Stations</h3>
@@ -19,7 +20,7 @@ export default function Stations (props){
       Object.keys(stations).map(genre => {
         return (
           <div className="list-group-item" key={genre}>
-            <Link to={'fill/me/in/later'}>{genre}</Link>
+            <Link to={`/stations/${genre}`}>{genre}</Link>
           </div>
         );
       })
