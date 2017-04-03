@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function Songs (props) {
-
+  console.log('song props', props)
   const songs = props.songs;
   const currentSong = props.currentSong;
   const isPlaying = props.isPlaying;
@@ -23,7 +23,7 @@ export default function Songs (props) {
             <tr key={song.id}>
               <td>
                 <button className="btn btn-default btn-xs" onClick={() => toggle(song, songs)}>
-                  <span className={song.id === currentSong.id && isPlaying ? "glyphicon glyphicon-pause" : "glyphicon glyphicon-play"}></span>
+                   <span className={song.id === currentSong.id && isPlaying ? "glyphicon glyphicon-pause" : "glyphicon glyphicon-play"}></span>
                 </button>
               </td>
               <td>{ song.name }</td>

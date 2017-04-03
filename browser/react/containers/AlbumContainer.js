@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import store from '../store';
 import Album from '../components/Album';
 import {toggleSong} from '../action-creators/player';
+import { connect } from 'react-redux';
 
 class AlbumContainer extends Component {
 

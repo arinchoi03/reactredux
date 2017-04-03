@@ -2,6 +2,7 @@ import React from 'react';
 import NewPlaylist from '../components/NewPlaylist';
 import store from '../store';
 import {addNewPlaylist} from '../action-creators/playlists';
+import { connect } from 'react-redux';
 
 class NewPlaylistContainer extends React.Component {
 

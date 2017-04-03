@@ -3,18 +3,18 @@ import { connect } from 'react-redux';
 import { store } from '../store';
 import Stations from '../components/Stations'
 
-class StationsContainer extends Component {
-  constructor() {
-    super();
-    this.state = store.getState()
-  }
+// class StationsContainer extends Component {
+//   constructor() {
+//     super();
+//     this.state = store.getState()
+//   }
 
 
-  render() {
+//   render() {
 
-  }
+//   }
 
-}
+// }
 
 const convertSongsToStations = function(songsArray) {
   // songsArray.map(song => song.genre === selectedGenre)

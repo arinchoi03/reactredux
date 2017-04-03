@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import store from '../store';
 import Albums from '../components/Albums';
+import { connect } from 'react-redux';
 
 class AlbumsContainer extends Component {
 

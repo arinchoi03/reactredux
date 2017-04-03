@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 export default function Sidebar(props) {
-
+  // console.log('props in Sidebar: ', props)
   const playlists = props.playlists;
 
   return (
@@ -40,7 +40,7 @@ export default function Sidebar(props) {
       <hr />
       <ul className="list-unstyled">
         {
-          playlists.map(playlist => {
+          (playlists.list).map(playlist => {
             return (
               <li key={playlist.id} className="playlist-item menu-item">
                 <Link to={`/playlists/${playlist.id}`}>{playlist.name}</Link>
